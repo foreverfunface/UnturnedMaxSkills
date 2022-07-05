@@ -13,8 +13,8 @@ namespace MaxSkills.Commands
         public string Name => "maxskills";
 
         public string Help =>   "Use /maxskills for max your skills\n" +
-                                "Use /maxskills + [Username] for add autoskill for user\n" +
-                                "Or /maxskills - [UserName] for remove from this list\n" +
+                                $"Use /maxskills {MaxSkillsPlugin.Instance.Configuration.Instance.AddAutoCommand} [Username] for add autoskill for user\n" +
+                                $"Or /maxskills {MaxSkillsPlugin.Instance.Configuration.Instance.RemoveAutoCommand} [UserName] for remove from this list\n" +
                                 "Use /maxskills l to get autoskill users list";
 
         public string Syntax => "";
@@ -32,11 +32,11 @@ namespace MaxSkills.Commands
             }
             else
             {
-                if (command[0] == "+")
+                if (command[0] == MaxSkillsPlugin.Instance.Configuration.Instance.AddAutoCommand)
                 {
                     MaxSkillsPlugin.AddMaxSkills(UnturnedPlayer.FromName(command[1]).CSteamID);
                 }
-                else if (command[0] == "-")
+                else if (command[0] == MaxSkillsPlugin.Instance.Configuration.Instance.RemoveAutoCommand)
                 {
                     MaxSkillsPlugin.RemoveMaxSkills(UnturnedPlayer.FromName(command[1]).CSteamID);
                 }
