@@ -22,7 +22,8 @@ namespace MaxSkills
         {
             Instance = this; // Link plugin and make this public
             MessageColor = UnturnedChat.GetColorFromName(Configuration.Instance.MessageColor, UnityEngine.Color.black); // Get message color from config
-            MaxSkillsList = File.ReadAllLines(Configuration.Instance.MaxSkillsList).ToList();
+            if (File.Exists(Configuration.Instance.MaxSkillsList)) MaxSkillsList = File.ReadAllLines(Configuration.Instance.MaxSkillsList).ToList();
+            else MaxSkillsList = new List<string>();
 
             UnturnedPermissions.OnJoinRequested += UnturnedPermissions_OnJoinRequested;
 
