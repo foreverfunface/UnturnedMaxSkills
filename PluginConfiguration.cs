@@ -13,9 +13,6 @@ namespace MaxSkills
         {
             MessageColor = "green";
             LoadMessage = "MaxSkills is active!\nGet more plugins on https://vk.com/astis.unturned.store";
-            MaxSkillsList = "./MaxSkills.txt";
-            AddAutoCommand = "+";
-            RemoveAutoCommand = "-";
         }
     }
 }

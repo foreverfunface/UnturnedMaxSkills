@@ -12,10 +12,7 @@ namespace MaxSkills.Commands
 
         public string Name => "maxskills";
 
-        public string Help =>   "Use /maxskills for max your skills\n" +
-                                $"Use /maxskills {MaxSkillsPlugin.Instance.Configuration.Instance.AddAutoCommand} [Username] for add autoskill for user\n" +
-                                $"Or /maxskills {MaxSkillsPlugin.Instance.Configuration.Instance.RemoveAutoCommand} [UserName] for remove from this list\n" +
-                                "Use /maxskills l to get autoskill users list";
+        public string Help =>   "Use /maxskills for max your skills\n";
 
         public string Syntax => "";
 
@@ -25,26 +22,10 @@ namespace MaxSkills.Commands
 
         public void Execute(IRocketPlayer caller, string[] command)
         {
-            if (command.Length < 0)
+            if (command.Length == 0)
             {
                 ((UnturnedPlayer)caller).MaxSkills();
                 UnturnedChat.Say(caller, "All skills maxed");
-            }
-            else
-            {
-                if (command[0] == MaxSkillsPlugin.Instance.Configuration.Instance.AddAutoCommand)
-                {
-                    MaxSkillsPlugin.AddMaxSkills(UnturnedPlayer.FromName(command[1]).CSteamID);
-                }
-                else if (command[0] == MaxSkillsPlugin.Instance.Configuration.Instance.RemoveAutoCommand)
-                {
-                    MaxSkillsPlugin.RemoveMaxSkills(UnturnedPlayer.FromName(command[1]).CSteamID);
-                }
-                else if (command[0] == "l" || command[0] == "list")
-                {
-                    UnturnedChat.Say(caller, "AutoMaxSkill users:");
-                    foreach(var user in MaxSkillsPlugin.MaxSkillsList) UnturnedChat.Say(caller, $"{user}");
-                }
             }
         }
     }
