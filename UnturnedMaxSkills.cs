@@ -9,18 +9,18 @@ using OpenMod.API.Plugins;
 // For more, visit https://openmod.github.io/openmod-docs/devdoc/guides/getting-started.html
 
 [assembly: PluginMetadata("LonDev.MaxSkills", DisplayName = "MaxSkills")]
-namespace MyOpenModPlugin
+namespace MaxSkillsPlugin
 {
-    public class MyOpenModPlugin : OpenModUnturnedPlugin
+    public class MaxSkillsPlugin : OpenModUnturnedPlugin
     {
         private readonly IConfiguration m_Configuration;
         private readonly IStringLocalizer m_StringLocalizer;
-        private readonly ILogger<MyOpenModPlugin> m_Logger;
+        private readonly ILogger<MaxSkillsPlugin> m_Logger;
 
-        public MyOpenModPlugin(
+        public MaxSkillsPlugin(
             IConfiguration configuration,
             IStringLocalizer stringLocalizer,
-            ILogger<MyOpenModPlugin> logger,
+            ILogger<MaxSkillsPlugin> logger,
             IServiceProvider serviceProvider) : base(serviceProvider)
         {
             m_Configuration = configuration;

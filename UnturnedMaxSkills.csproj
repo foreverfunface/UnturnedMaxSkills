@@ -1,40 +1,56 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>net461</TargetFramework>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageTags>openmod openmod-plugin unturned</PackageTags>
-    <RootNamespace>MyOpenModPlugin</RootNamespace>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <GenerateNugetPackage>true</GenerateNugetPackage>
-    <Product>MaxSkills</Product>
-    <Nullable>enable</Nullable>
-    <WarningsAsErrors>nullable</WarningsAsErrors>
-    <NoWarn>$(NoWarn);NU1701;NU1702;CS0436</NoWarn>
-    <Version>0.1.0</Version>
-    <InformationalVersion>0.1.0</InformationalVersion>
-    <PackageVersion>0.1.0</PackageVersion>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="OpenMod.Unturned" Version="3.7.3+ee821428" />
-    <PackageReference Include="Legacy2CPSWorkaround" Version="1.0.0">
-      <PrivateAssets>All</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net461" Version="1.0.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="config.yaml" />
-    <EmbeddedResource Include="translations.yaml" />
-  </ItemGroup>
-
-  <Target Name="ChangeAliasesOfNugetRefs" BeforeTargets="FindReferenceAssembliesForReferences;ResolveReferences">
-    <ItemGroup>
-    </ItemGroup>
-  </Target>
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net461</TargetFramework>
+		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+		<PackageTags>openmod openmod-plugin unturned</PackageTags>
+		<RootNamespace>MaxSkillsPlugin</RootNamespace>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<GenerateNugetPackage>true</GenerateNugetPackage>
+		<Product>MaxSkills</Product>
+		<WarningsAsErrors>nullable</WarningsAsErrors>
+		<NoWarn>$(NoWarn);NU1701;NU1702;CS0436</NoWarn>
+		<Version>0.0.3</Version>
+		<InformationalVersion>0.0.3</InformationalVersion>
+		<PackageVersion>0.0.3</PackageVersion>
+	</PropertyGroup>
+	<PropertyGroup>
+		<PackageId>MaxSkills</PackageId>
+		<!-- must be unique, should be same as your plugin ID -->
+		<PackageDescription>Set all your skills to max LVL</PackageDescription>
+		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+		<!-- see https://spdx.org/licenses/ -->
+		<PackageAuthor>Londonist</PackageAuthor>
+		<PackageTags>openmod openmod-plugin unturned cheats</PackageTags>
+		<!-- XXX can be unturned, unityengine or universal depending on your plugin -->
+		<Version>0.0.3</Version>
+		<!-- Your plugins version. Must be semversion, see https://semver.org/ -->
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<GenerateNugetPackage>true</GenerateNugetPackage>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="OpenMod.Unturned" Version="3.7.3+ee821428" />
+		<PackageReference Include="Legacy2CPSWorkaround" Version="1.0.0">
+			<PrivateAssets>All</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net461" Version="1.0.3">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="config.yaml" />
+		<EmbeddedResource Include="translations.yaml" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Commands\" />
+		<Folder Include="Tools\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Remove="Tools\" />
+	</ItemGroup>
+	<Target Name="ChangeAliasesOfNugetRefs" BeforeTargets="FindReferenceAssembliesForReferences;ResolveReferences">
+		<ItemGroup>
+		</ItemGroup>
+	</Target>
 </Project>
